@@ -95,9 +95,10 @@ function writePassword() {
     }
     for (let i = 0; i < lengthOfPassword; i++) {
       // Math.floor(Math.random() * arrayOfArray.length)
-      var chosen = Math.floor(Math.random() * lowerCaseArray.length);
+      var which = Math.floor(Math.random() * arrayOfArray.length);
+      var chosen = Math.floor(Math.random() * arrayOfArray[which].length);
       console.log(password);
-      password = password + lowerCaseArray[chosen];
+      password = password + arrayOfArray[which][chosen];
       // console.log(password);
     }
     return password;
