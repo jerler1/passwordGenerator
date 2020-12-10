@@ -80,41 +80,32 @@ function writePassword() {
     // following four prompts are to ask if the user wants various special characters
     if (confirm("Do you want uppercase letters in your password?")) {
       arrayOfArray.push(upperCaseArray);
-      // console.log(arrayOfArray);
     }
     if (confirm("Do you want lowercase letters in your password?")) {
       arrayOfArray.push(lowerCaseArray);
-      // console.log(arrayOfArray);
     }
     if (confirm("Do you want special character in your password?")) {
       arrayOfArray.push(specialArray);
-      // console.log(arrayOfArray);
     }
     if (confirm("Do you want numeric characters in your password?")) {
       arrayOfArray.push(numericArray);
-      // console.log(arrayOfArray);
     }
     // if no criteria is chosen it alerts the user.
     if (arrayOfArray.length < 1 || arrayOfArray == undefined) {
       alert("You didn't pick any criteria.");
     }
-    
+
     // making the random password via for loops.
     for (let i = 0; i < lengthOfPassword; i++) {
       // Math.floor(Math.random() * arrayOfArray.length)
-      var which = Math.floor(Math.random() * arrayOfArray.length);
-      console.log(arrayOfArray.length)
-      // console.log(which)
-      var chosen = Math.floor(Math.random() * arrayOfArray[which].length);
-      // console.log(password);
+      var whichArray = Math.floor(Math.random() * arrayOfArray.length);
+      console.log(arrayOfArray.length);
+      var randomChosen = Math.floor(Math.random() * arrayOfArray[whichArray].length);
       if (i === 0) {
-        password = arrayOfArray[which][chosen];
+        password = arrayOfArray[whichArray][randomChosen];
+      } else {
+        password = password + arrayOfArray[whichArray][randomChosen];
       }
-      else {
-        password = password + arrayOfArray[which][chosen];
-      }
-      
-      // console.log(password);
     }
     return password;
   }
